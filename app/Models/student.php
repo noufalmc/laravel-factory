@@ -23,4 +23,8 @@ class student extends Model
     {
         return $query->where('std',$value);
     }
+    public function setDobAttribute($value)
+    {
+        $this->attributes['dob']=date('Y-m-d',strtotime($value));
+    }
 }
