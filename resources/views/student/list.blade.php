@@ -14,7 +14,7 @@
     @foreach($data as $key=>$value)
 
     <tr>
-        <td>{{ $key+1 }}</td>
+        <td>{{ $data->firstItem() + $loop->index }}</td>
         <td>{{$value->first_name}}</td>
         <td>{{$value->last_name}}</td>
         <td>{{$value->date_of_birth_formated}}</td>
