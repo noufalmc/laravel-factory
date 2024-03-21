@@ -17,10 +17,10 @@
         <td>{{ $key+1 }}</td>
         <td>{{$value->first_name}}</td>
         <td>{{$value->last_name}}</td>
-        <td>{{$value->dob}}</td>
+        <td>{{$value->date_of_birth_formated}}</td>
         <td>{{$value->standard->name}}</td>
         <td>
-            <a href="/edit/{{$value->id}}"><button class="btn btn-info">Edit</button></a>
+            <a href="{{ route('student.edit',$value->id) }}"><button class="btn btn-info">Edit</button></a>
             <a><button class="btn btn-danger" onclick="Remove({{$value->id}})">Remove</button></a>
             
         </td>
@@ -30,7 +30,12 @@
     @endforeach    
 </tbody>
 </table>
+<div>
 <p>Total Records in 1st Std:{{$count}}</p>
+{{
+    $data->links();
+}}
+</div>
 @endsection
 <script>
     function Remove(id)
@@ -38,7 +43,7 @@
         if(confirm("Are You Sure Wants To Delete This Record??"))
         {
             $.ajax({
-                type:'DELETE',
+                type:'GET',
                 headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                 url :"{{ url('student-delete') }}/"+id,
                 success:function(res)

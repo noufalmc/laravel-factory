@@ -17,7 +17,7 @@ use App\Http\Controllers\StudentController;
 
 Route::get('/', function () {
 
-    $data=student::classWise('1')->limit('10')->oldest()->get();
+    $data=student::classWise('1')->paginate(6);
     $count=student::classWise('1')->count();
     return view('student/list')->with(['data'=>$data,'count'=>$count]);
 })->name('student.home');
@@ -29,4 +29,4 @@ Route::get('/student-form', function(){
 Route::post('save-data',[StudentController::class,'save'])->name('student.save');
 Route::get('edit/{id}',[StudentController::class,'edit'])->name('student.edit');
 Route::put('editUpdate/{id}',[StudentController::class,'update'])->name('student.update');
-Route::delete('student-delete/{id}',[StudentController::class,'delete'])->name('student.delete');
+Route::get('student-delete/{id}',[StudentController::class,'delete'])->name('student.delete');

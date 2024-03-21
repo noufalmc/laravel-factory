@@ -26,7 +26,7 @@
         <div class="row">
             <div class="col-md-3">
                 <label for="">Dob</label>
-                <input type="text" name="dob" class="form-control" value="{{$data->dob}}">
+                <input type="date" name="dob" class="form-control" value="{{$data->dob}}">
             </div>
         </div>
         <div class="row">
