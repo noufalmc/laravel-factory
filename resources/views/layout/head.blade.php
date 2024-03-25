@@ -5,6 +5,7 @@
     <ul class="nav navbar-nav">
       <li><a href="{{ route ('student.home')}}">List</a></li>
       <li><a href="{{ route ('student.form')}}">register</a></li>
+     @if(auth()->user())<li><a href="{{ route ('logout')}}">Logout</a></li>@endif
     </ul>
   </div>
 </nav>

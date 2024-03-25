@@ -2,6 +2,7 @@
 @extends('layout.head')
 @section('content')
 <table class="table table-borderd">
+    <h3>Hi!!{{ auth()->user()->name}}</h3>
 <thead>
     <th>SiNo</th>
     <th>First Name</th>
@@ -31,7 +32,6 @@
 </tbody>
 </table>
 <div>
-<p>Total Records in 1st Std:{{$count}}</p>
 {{
     $data->links();
 }}
